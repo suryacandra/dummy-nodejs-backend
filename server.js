@@ -25,10 +25,10 @@ import art from './routes/api/art.js'
 import apiMiddleware from './middleware/api.js'
 import { fileURLToPath } from 'url';
 
-const whitelist = ['https://google.com', 'http://localhost:3000', 'https://twitter.com', 'http:127.0.0.0:3000', 'http://127.0.0.1']
+// const whitelist = ['https://google.com', 'http://localhost:3000', 'https://twitter.com', 'http:127.0.0.0:3000', 'http://127.0.0.1']
 const corsOptions = {
     origin: (origin, callback) => {
-        if(whitelist.indexOf(origin) !== -1) {
+        if(!origin) {
             callback(null, true);
         } else {
             callback(new Error('Not allowed by CORS'));
