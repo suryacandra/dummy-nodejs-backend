@@ -25,10 +25,6 @@ import art from './routes/api/art.js'
 import apiMiddleware from './middleware/api.js'
 import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 const whitelist = ['https://google.com', 'http://localhost:3000', 'https://twitter.com']
 const corsOptions = {
     origin: (origin, callback) => {
@@ -40,6 +36,11 @@ const corsOptions = {
     },
     optionsSuccessStatus: 200
 }
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(cookieParser());
 app.use(cors(corsOptions));
