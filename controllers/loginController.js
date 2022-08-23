@@ -31,7 +31,7 @@ const login = async (req, res) => {
             },
             process.env.ACCESS_TOKEN_SECRET,
             {
-                expiresIn: '10s'
+                expiresIn: '1m'
             }
         )
 
@@ -48,7 +48,7 @@ const login = async (req, res) => {
         findUser.refreshTokens = refreshToken
         const result = await findUser.save();
 
-        res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'None', maxAge: 1000 * 60 * 60 * 24 });
+        res.cookie('jwt', refreshToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 1000 * 60 * 60 * 24 });
 
         res.status(200).json({
             message: 'Login successful',
