@@ -25,7 +25,7 @@ import art from './routes/api/art.js'
 import apiMiddleware from './middleware/api.js'
 import { fileURLToPath } from 'url';
 
-const whitelist = ['https://google.com', 'http://localhost:3000', 'https://twitter.com']
+const whitelist = ['https://google.com', 'http://localhost:3000', 'https://twitter.com', 'https://dummy-nodejs-backend.vercel.app']
 const corsOptions = {
     origin: (origin, callback) => {
         if(whitelist.indexOf(origin) !== -1) {
