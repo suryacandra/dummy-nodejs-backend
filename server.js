@@ -27,13 +27,7 @@ import { fileURLToPath } from 'url';
 
 // const whitelist = ['https://google.com', 'http://localhost:3000', 'https://twitter.com', 'http:127.0.0.0:3000', 'http://127.0.0.1']
 const corsOptions = {
-    origin: (origin, callback) => {
-        if(!origin) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
+    origin: "*",
     optionsSuccessStatus: 200
 }
 
